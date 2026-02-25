@@ -4,16 +4,19 @@ import { lastValueFrom } from 'rxjs';
 import { Nav } from '../layout/nav/nav';
 import { AccountSevice } from '../core/services/account-sevice';
 import { Home } from "../features/home/home";
+import { Router, RouterOutlet } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Nav, Home],
+  imports: [Nav, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit{
   private http = inject(HttpClient);
   private accountService = inject(AccountSevice);
+  protected router = inject(Router);
   protected readonly title = signal('Social App');
   protected members = signal<any>([]);
   

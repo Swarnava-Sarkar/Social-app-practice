@@ -17,13 +17,13 @@ public class TokenService(IConfiguration configuration) : ITokenService
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
 
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
         var claims = new List<Claim>
         {
             new(ClaimTypes.Email, user.Email),
             new(ClaimTypes.NameIdentifier, user.Id)
         };
-
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
