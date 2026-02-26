@@ -13,7 +13,7 @@ export class ToastService {
     if(!document.getElementById('toast-container')) {
       const container = document.createElement('div');
       container.id = 'toast-container';
-      container.className = 'toast toast-bottom toast-end';
+      container.className = 'toast toast-bottom toast-end w-1/3';
       document.body.appendChild(container);
     }
   }
@@ -23,7 +23,7 @@ export class ToastService {
     if(!toastContainer) return;
 
     const toast = document.createElement('div');
-    toast.classList.add('alert', alertClass, 'shadow-lg');
+    toast.classList.add('alert', alertClass, 'shadow-lg', 'w-full', 'flex', 'justify-between');
     toast.innerHTML = `
       <span>${message}</span>
       <button class="ml-2 btn bt-sm btn-ghost"> x </button>

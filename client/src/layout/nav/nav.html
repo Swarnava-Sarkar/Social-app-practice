@@ -11,12 +11,17 @@
         </a>
 
         <nav class="flex gap-2 my-1 text-lg text-white font-semibold">
-            <a routerLink="/members" routerLinkActive="text-accent bg-white/10" 
-            class="px-3 py-1.5 rounded-lg">Friends</a>
-            <a routerLink="/lists" routerLinkActive="text-accent bg-white/10" 
-            class="px-3 py-1.5 rounded-lg">Lists</a>
-            <a routerLink="/messages" routerLinkActive="text-accent bg-white/10" 
-            class="px-3 py-1.5 rounded-lg">Messages</a>
+            @if(accountService.currentUser())
+            {
+                <a routerLink="/members" routerLinkActive="text-accent bg-white/10" 
+                class="px-3 py-1.5 rounded-lg">Friends</a>
+                <a routerLink="/lists" routerLinkActive="text-accent bg-white/10" 
+                class="px-3 py-1.5 rounded-lg">Lists</a>
+                <a routerLink="/messages" routerLinkActive="text-accent bg-white/10" 
+                class="px-3 py-1.5 rounded-lg">Messages</a>
+            }
+            <a routerLink="/errors" routerLinkActive="text-accent bg-white/10" 
+            class="px-3 py-1.5 rounded-lg">Errors</a>
         </nav>
 
         <div class="flex align-middle ml-auto gap-3">
